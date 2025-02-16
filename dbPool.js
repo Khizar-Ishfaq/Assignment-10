@@ -11,7 +11,10 @@ const dbServer = new MongoClient(destConnString)
 
 const openDbConn = async () => {
  try {
+ console.log('database connnecting........');
  await dbServer.connect();
+ console.log('database connection established');
+ 
  return dbServer.db(dbName)
  } catch (error) {
  console.error("Failed to conencto to the database", error)

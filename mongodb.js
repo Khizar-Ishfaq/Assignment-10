@@ -81,17 +81,7 @@ const addRandomUsers = async (maxUsers) => {
     }
 };
 
-const closeDbConnection = async () => {
-    try {
-        await dbServer.close();
-        console.log("Database connection closed");
-    } catch (error) {
-        console.error("Failed to close the database connection", error);
-    }
-}
 
-process.on("SIGINT", closeDbConnection);
-process.on("SIGTERM", closeDbConnection);
 
 let logonUsers = new Map();
 export {
