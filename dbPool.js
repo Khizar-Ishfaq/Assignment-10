@@ -25,4 +25,5 @@ export {
     openDbConn,
     usersCollection,
     dataCollection,
+    dbServer
 }
