@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb'
 const dbHost = "localhost:27017"
 const dbUser = "khizar"
-const dbPassword = "khizar@222"
-const dbName = "test1"
+const dbPassword = "khizar123"
+const dbName = "test"
 const dataCollection = "data"
 const usersCollection = "users"
 const destConnString = `mongodb://${dbUser}:${dbPassword}@${dbHost}?authSource=${dbName}`
