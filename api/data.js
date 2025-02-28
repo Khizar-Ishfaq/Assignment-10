@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {getAllData, getDataById, addData} from '../mongodb.js'
+import { addRandomUsers } from './mongodb.js'; 
 let router = Router()
 
 router.get('/', async (req, res) => {
@@ -22,5 +23,16 @@ router.post('/', async (req, res) => {
             res.status(500).json({"error": "unknown database error"})
     }
 })
+
+router.post('/addRandomUsers', async (req, res) => {
+    const  maxUsers  = req.body;
+    try {
+        const result = await addRandomUsers(maxUsers);
+        res.json({"message": "Rows generated successfully!" });
+    } catch (err) {
+        res.status(500).json({ "Error": "Error generating rows" });
+    }
+});
+
 
 export default router;
