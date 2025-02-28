@@ -38,6 +38,12 @@ const addOneUser = async (username, password) =>
 const addData = ({id, Firstname, Surname, userid}) =>
     sendQuery(`INSERT INTO data (id, Firstname, Surname, userid) VALUES (?, ?, ?, ?)`, true, id, Firstname, Surname, userid);
 
+// Function to call the GenerateRows stored procedure
+const addRandomUsers = async (maxUsers) => {
+    const query = 'CALL addRandomUsers(?)'; // Call the stored procedure with the maxUsers parameter
+    return sendQuery(query, false, maxUsers);
+};
+
 /*
 const getUserByName = (username) => 
     sendQuery(`SELECT * FROM users WHERE username = ?`, false, username);
